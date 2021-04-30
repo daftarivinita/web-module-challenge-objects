@@ -156,12 +156,18 @@ Use the getReviewsByRating function below to do the following:
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}
   ]
 */
-
- function getReviewByRating(/* code here */) {
-    /* code here */
+function getReviewByRating(array, rating) {
+  const feedback= [];
+    for(let i=0; i< array.length; i++) {
+      if (array[i].rating >= rating ) {
+         feedback.push(array[i])
+      } 
   }
+  return feedback;
 
-  
+}
+console.log(getReviewByRating(reviews, 4));
+
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
   1. Receive the array that holds all the reviews
@@ -175,10 +181,16 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array) {
+  let newArray = [];
+  for(let i=0; i< array.length; i++) {
+    if (array[i].feedback.split(" ").length > 15)
+    newArray.push(array[i])
+  }
+  return newArray;
   }
   
+console.log(getLongReviews(reviews));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
@@ -196,12 +208,19 @@ Use the carMaker function below to do the following:
   Then we called car1.drive(100)
   It would return 110 because it was created with 10 as the odometer and we added 100 to it with the drive method 
 */
-
-
-function carMaker(/* code here */) {
-    /* code here */
-    
-}
+function carMaker(mile, distance) {
+  const car = {
+    name: 'car1',
+    color: 'blue',
+    odometer: mile,
+    drive: function(distance){
+      return car.odometer + distance;
+    }
+  }
+  return (car.drive(distance));
+  }
+  
+  console.log(carMaker(10 , 100));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
